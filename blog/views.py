@@ -6,7 +6,7 @@ from .models import Post
 
 def post_list(request):
     # stworzenie zmiennej dla QuerySetu
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     # metoda przyjmuje zapytanie i zwraca metodę render renderującą szablon html
     # przekazujemy QuerySet z listą posów do szablonu w zmiennej 'posts'
     return render(request, 'blog/post_list.html', {'posts': posts})
