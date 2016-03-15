@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<html>
+        <head>
+                <title>Smiechfetka's Site</title>
+                <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+                <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+        </head>
+        <body>
+                <div class="page-header">
+                        <h1><a href="">Smiechfetka</a></h1>
+                </div>
+
+                {% for post in posts %}
+                        <div>
+                                <p>{{ post.published_date }}</p>
+                                <h1><a href="">{{ post.title }}</a></h1>
+                                <p>{{ post.text|linebreaks }}</p>
+                                <hr>
+                        </div>
+                {% endfor %}
+
+        </body>
+</html>
